@@ -1,0 +1,24 @@
+<div ng-controller="OtherController">
+    <p>
+        ScopeID: {{id}}
+    </p>
+    <p>
+        Parent title is: {{title}}
+    </p>
+    <p>
+        <a class="btn btn-primary btn-lg" role="button" ng-click="setTitle()">Set Title</a>
+    </p>
+</div>
+<div ng-controller="ArithmeticController">
+    <p>
+        Type something: <input type="number" ng-model="firstVariable"/>
+    <p>
+        Type something: <input type="number" ng-model="secondVariable"/>
+    </p>
+    <button ng-click="add()" ng-enabled="firstVariable != 0 && secondVariable != 0">ADD</button>
+    <button ng-click="sub()" ng-enabled="firstVariable != 0 && secondVariable != 0">SUB</button>
+    <button ng-click="mul()" ng-enabled="firstVariable != 0 && secondVariable != 0">MUL</button>
+    <button ng-click="divi()" ng-enabled="firstVariable != 0 && secondVariable != 0">DIV</button>
+
+    <p>{{result}}</p>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <style>
+        .image_container {
+            width: 250px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div ng-app="hrApp">
+    <div ng-controller="ImageController">
+        <div ng-show="showAndHide" style="width: 1550px; height:400px; margin:0 auto">
+            <div class="panel panel-default" ng-repeat="imag in imageList track by $index" ng-mouseenter="countt = imag.price "
+                 ng-click="addToCart(imag)"
+                 ng-mouseleave="countt = ''" style="height:270px; width: 320px; float:left; margin:20px">
+                <div class="panel-heading">{{imag.nume}}</div>
+                <div class="panel-body">
+                    <img class="image_container" ng-src="{{imag.url}}"></img>
+                </div>
+                <h1 style="text-align:center">{{countt}}</h1>
+            </div>
+        </div>
+
+        <button ng-click="showCart()">Go to shopping cart</button>
+
+        <table ng-hide="showAndHide" border="1px">
+            <tr>
+                <td><h1>Name</h1></td>
+                <td><h1>How it looks</h1></td>
+                <td><h1>Price</h1></td>
+                <td><h1>Quantity</h1></td>
+
+            </tr>
+            <tr ng-repeat="item in buyList track by $index" >
+                <td>{{item.nume}}</td>
+                <td><img class="image_container" ng-src="{{item.url}}"></img></td>
+                <td>{{item.price}}</td>
+                <td><input type = "text" ng-model="item.quantity"> </td>
+            </tr>
+            <tr >
+                <td style="float:right; width:100%" >Total cost: {{total}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../bower_components/jquery/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../scripts/app.js"></script>
+<script type="text/javascript" src="../scripts/ImageController.js"></script>
+</body>
+</html>
