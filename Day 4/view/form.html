@@ -1,0 +1,11 @@
+<ng-form name="myForm">
+    <input name="input" ng-model="userName" required >
+    <span ng-show="myForm.input.$error.required">
+        Required!
+    </span>
+    <br>
+    <button ng-click="submit(myForm.input.$error.required)">
+        Click here to submit
+    </button>
+
+</ng-form>

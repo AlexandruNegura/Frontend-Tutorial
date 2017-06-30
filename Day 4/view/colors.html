@@ -1,0 +1,15 @@
+<select ng-options="color.text for color in colors"
+        ng-model="selected">Lista</select>
+<select ng-options="color.text group by color.type for color in colors"
+        ng-model="selected" ng-change="changeColor()">Lista</select>
+<input ng-model="selected">
+<span ng-class="selected.class">Some text</span>
+
+
+<br>
+<input ng-model="input1">
+<input ng-model="input2">
+
+<div ng-repeat="color in colors | orderBy:input1 | filter:input2">
+    {{color.text}}
+</div>
