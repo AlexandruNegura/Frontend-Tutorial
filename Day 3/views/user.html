@@ -1,0 +1,41 @@
+<style>
+    input {
+        display: block;
+        box-sizing: border-box;
+        margin: 2px;
+    }
+</style>
+
+<div>
+    <input type="text" ng-model="firstName" placeholder="First Name"/>
+    <input type="text" ng-model="lastName" placeholder="Last Name"/>
+    <input type="text" ng-model="id" placeholder="CNP"/>
+    <input type="number" ng-model="age" placeholder="0"/>
+    <input type="text" ng-model="etc" placeholder="ETC"/>
+</div>
+
+<div>
+    <button ng-click="back()">BACK</button>
+    <button ng-click="reset()">RESET</button>
+    <button ng-click="save()">SAVE</button>
+    <button ng-click="showAndHideUserList()">SHOW/HIDE</button>
+</div>
+
+<div ng-if="boolean">
+    <table border=2px>
+        <tr>
+            <td><h1>First Name</h1></td>
+            <td><h1>Last Name</h1></td>
+            <td><h1>CNP</h1></td>
+            <td><h1>Age</h1></td>
+            <td><h1>ETC</h1></td>
+        </tr>
+        <tr ng-repeat="item in serviceVector">
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.etc}}</td>
+        </tr>
+    </table>
+</div>
