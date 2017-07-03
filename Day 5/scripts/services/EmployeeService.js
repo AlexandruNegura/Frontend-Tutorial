@@ -1,7 +1,7 @@
-hrApp.service('EmployeeService', ['$http', 'CommonResourcesFactoryBackup', function ($http, CommonResourcesFactoryBackup) {
+hrApp.service('EmployeeService', ['$http', 'CommonResourcesFactory', function ($http, CommonResourcesFactory) {
         return {
             findById: function (employeeId) {
-                return $http.get(CommonResourcesFactoryBackup.findOneEmployeeUrl + employeeId)
+                return $http.get(CommonResourcesFactory.findOneEmployeeUrl + employeeId)
                     .success(function (data) {
                         return data;
                     })
@@ -20,7 +20,36 @@ hrApp.service('EmployeeService', ['$http', 'CommonResourcesFactoryBackup', funct
                             "departmentId": 90
                         };
                     });
+            },
+
+            getAllEmployees: function () {
+                return $http.get(CommonResourcesFactory.findAllEmployeesUrl)
+                    .then(function(response) {
+                        //return data when promise resolved
+                        //that would help you to continue promise chain.
+                        return response.data;
+                    });
+            },
+
+            getDepartments: function () {
+                return $http.get(CommonResourcesFactory.findAllDepartmentsUrl)
+                    .then(function(response) {
+                        //return data when promise resolved
+                        //that would help you to continue promise chain.
+                        return response.data;
+                    });
+            },
+
+            getJobs: function () {
+                return $http.get(CommonResourcesFactory.findAllJobsUrl)
+                    .then(function(response) {
+                        //return data when promise resolved
+                        //that would help you to continue promise chain.
+                        return response.data;
+                    });
             }
+
+
         }
     }]
 );
